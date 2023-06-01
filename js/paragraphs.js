@@ -502,7 +502,7 @@ const wordList = [
 
 
 function generateRandomParagraph() {
-  const paragraphLength = Math.floor(Math.random() * 51) + 200; // Generate random number of words between 200 and 250
+  const paragraphLength = Math.floor(Math.random() * 51) + 500; // Generate random number of words between 200 and 250
 
   let paragraph = "";
   let wordCount = 0;
