@@ -244,3 +244,21 @@ function randomWords(diff){
   }
   return selectedWords;
 }
+
+// Export functions and state for testing in Node.js
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = {
+    checkWord,
+    displayTest,
+    colorSpan,
+    randomWords,
+    getWordNo: () => wordNo,
+    setWordNo: (val) => { wordNo = val; },
+    getWordsSubmitted: () => wordsSubmitted,
+    setWordsSubmitted: (val) => { wordsSubmitted = val; },
+    getWordsCorrect: () => wordsCorrect,
+    setWordsCorrect: (val) => { wordsCorrect = val; },
+    getDifficulty: () => difficulty,
+    setDifficulty: (val) => { difficulty = val; }
+  };
+}
