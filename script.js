@@ -19,6 +19,8 @@ var factor=2;
 var seconds;
 var difficulty=1;
 
+var currentWordElement = null;
+
 displayTest(difficulty);
 
 //on Input
@@ -144,15 +146,13 @@ function displayScore(){
 //check if the user is entering correct word
 function currentWord(){
   const wordEntered = inputItem.value;
-  const currentID = "word "+wordNo;
-  const currentSpan = document.getElementById(currentID);
-  const curSpanWord = currentSpan.innerText;
+  const curSpanWord = currentWordElement.innerText;
 
   if(wordEntered == curSpanWord.substring(0,wordEntered.length)){
-    colorSpan(currentID, 2);
+    colorSpan(currentWordElement, 2);
   }
   else{
-    colorSpan(currentID, 3);
+    colorSpan(currentWordElement, 3);
   }
 
 }
@@ -161,18 +161,16 @@ function checkWord(){
   const wordEntered = inputItem.value;
   inputItem.value='';
 
-  const wordID = "word "+wordNo;
-  const checkSpan = document.getElementById(wordID);
   wordNo++;
   wordsSubmitted++;
 
-  if(checkSpan.innerText === wordEntered){
-    colorSpan(wordID, 1);
+  if(currentWordElement.innerText === wordEntered){
+    colorSpan(currentWordElement, 1);
     wordsCorrect++;
     cw.innerText=wordsCorrect;
   }
   else{
-    colorSpan(wordID, 3);
+    colorSpan(currentWordElement, 3);
   }
 
   if(wordNo>40){
@@ -181,13 +179,13 @@ function checkWord(){
   }
   else{
     const nextID = "word "+wordNo;
-    colorSpan(nextID, 2);
+    currentWordElement = document.getElementById(nextID);
+    colorSpan(currentWordElement, 2);
   }
 }
 
 //color the words
-function colorSpan(id, color){
-  const span = document.getElementById(id);
+function colorSpan(span, color){
   if(color === 1 ){
     span.classList.remove('wrong');
     span.classList.remove('current');
@@ -219,7 +217,8 @@ function displayTest(diff){
   });
 
   const nextID = "word "+wordNo;
-  colorSpan(nextID, 2);
+  currentWordElement = document.getElementById(nextID);
+  colorSpan(currentWordElement, 2);
 }
 
 //Generate an array of random 50 words
