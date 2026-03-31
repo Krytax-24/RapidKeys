@@ -87,12 +87,12 @@ restartBtn.addEventListener("click",function(){
 
   displayTest(difficulty);
   clearInterval(seconds);
-  limitVisible();
+  setLimitVisibility('visible');
 });
 
 //start the timer countdown
 function timeStart(){
-  limitInvisible();
+  setLimitVisibility('hidden');
   seconds = setInterval(function() {
     time.innerText--;
     if (time.innerText == "-1") {
@@ -111,18 +111,13 @@ function timeOver(){
 }
 
 //set Limit visibility
-function limitVisible(){
-  thirty.style.visibility = 'visible';
-  sixty.style.visibility = 'visible';
-  beg.style.visibility = 'visible';
-  pro.style.visibility = 'visible';
+function setLimitVisibility(visibility) {
+  thirty.style.visibility = visibility;
+  sixty.style.visibility = visibility;
+  beg.style.visibility = visibility;
+  pro.style.visibility = visibility;
 }
-function limitInvisible(){
-  thirty.style.visibility = 'hidden';
-  sixty.style.visibility = 'hidden';
-  beg.style.visibility = 'hidden';
-  pro.style.visibility = 'hidden';
-}
+
 
 //display the score
 function displayScore(){
