@@ -126,3 +126,87 @@ textarea{
   text-align: center;
   margin-bottom: 15px;
 }
+
+/* New Styles for typing experience */
+.typing-area {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto 50px auto;
+  min-height: 120px;
+  overflow: hidden; /* Hide lines outside the current view */
+  text-align: left;
+  font-size: 1.5rem;
+  line-height: 2.2rem;
+  cursor: text;
+}
+
+.text-display {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  transition: transform 0.2s ease;
+  min-height: 100%;
+}
+
+.text-display .word {
+  margin: 0 0.4em 0.4em 0;
+  display: inline-block;
+  color: #646669; /* Greyed out un-typed text */
+  border-bottom: 2px solid transparent;
+}
+
+.text-display .word.error {
+  border-bottom: 2px solid var(--var-incorrect-text);
+}
+
+.text-display .letter {
+  display: inline-block;
+}
+
+.text-display .letter.correct {
+  color: var(--var-correct-text);
+}
+
+.text-display .letter.incorrect {
+  color: var(--var-incorrect-text);
+}
+
+.text-display .letter.extra {
+  color: #8c1c13; /* Darker red for extra letters typed */
+}
+
+/* Caret/Cursor */
+.cursor {
+  position: absolute;
+  width: 2px;
+  height: 1.8rem;
+  background-color: var(--var-text-blue);
+  transition: left 0.1s ease, top 0.1s ease;
+  z-index: 10;
+  border-radius: 2px;
+}
+
+.cursor.hidden {
+  display: none;
+}
+
+.cursor.blinking {
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Hidden Input */
+.hidden-input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: 0;
+  border: none;
+}
