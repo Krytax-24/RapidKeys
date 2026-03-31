@@ -244,3 +244,27 @@ function randomWords(diff){
   }
   return selectedWords;
 }
+
+if (typeof module !== 'undefined') {
+  module.exports = {
+    randomWords,
+    displayScore,
+    limitColor,
+    limitVisible,
+    limitInvisible,
+    wordNo,
+    wordsSubmitted,
+    wordsCorrect,
+    factor,
+    timer,
+    difficulty
+  };
+}
+
+if (typeof module !== 'undefined') {
+  module.exports.setTestData = (data) => {
+    if (data.wordsSubmitted !== undefined) wordsSubmitted = data.wordsSubmitted;
+    if (data.wordsCorrect !== undefined) wordsCorrect = data.wordsCorrect;
+    if (data.factor !== undefined) factor = data.factor;
+  };
+}
