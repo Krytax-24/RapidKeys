@@ -206,7 +206,7 @@ function colorSpan(id, color){
 //display the random words on screen
 function displayTest(diff){
   wordNo = 1;
-  testItem.innerHTML = '';
+  testItem.textContent = '';
 
   let newTest = randomWords(diff);
   newTest.forEach(function(word, i){
