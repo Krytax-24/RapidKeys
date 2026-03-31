@@ -244,3 +244,13 @@ function randomWords(diff){
   }
   return selectedWords;
 }
+
+// Export functions and state for testing in Node.js
+if (typeof module !== 'undefined') {
+  module.exports = {
+    displayScore,
+    setWordsSubmitted: (val) => { wordsSubmitted = val; },
+    setWordsCorrect: (val) => { wordsCorrect = val; },
+    setFactor: (val) => { factor = val; }
+  };
+}
