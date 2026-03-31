@@ -208,15 +208,17 @@ function colorSpan(id, color){
 //display the random words on screen
 function displayTest(diff){
   wordNo = 1;
-  testItem.innerHTML = '';
+  testItem.textContent = '';
 
   let newTest = randomWords(diff);
+  let fragment = document.createDocumentFragment();
   newTest.forEach(function(word, i){
     let wordSpan = document.createElement('span');
     wordSpan.innerText = word;
     wordSpan.setAttribute("id", "word " + (i+1));
-    testItem.appendChild(wordSpan);
+    fragment.appendChild(wordSpan);
   });
+  testItem.appendChild(fragment);
 
   const nextID = "word "+wordNo;
   colorSpan(nextID, 2);
