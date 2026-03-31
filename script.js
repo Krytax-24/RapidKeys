@@ -237,3 +237,9 @@ function randomWords(diff){
   }
   return selectedWords;
 }
+
+if (typeof module !== 'undefined') {
+  module.exports = {
+    colorSpan
+  };
+}
