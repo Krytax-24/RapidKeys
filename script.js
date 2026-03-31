@@ -237,3 +237,17 @@ function randomWords(diff){
   }
   return selectedWords;
 }
+
+// Export for testing
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = {
+    displayScore,
+    setWordsSubmitted: (val) => wordsSubmitted = val,
+    setWordsCorrect: (val) => wordsCorrect = val,
+    setFactor: (val) => factor = val,
+    time,
+    cw,
+    timeName,
+    cwName
+  };
+}
