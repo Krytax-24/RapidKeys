@@ -244,3 +244,8 @@ function randomWords(diff){
   }
   return selectedWords;
 }
+
+// Export functions for testing
+if (typeof module !== 'undefined') {
+  module.exports = { randomWords };
+}
